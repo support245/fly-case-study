@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+<title>Lead Gen Case Study | MedTech Design Agency</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root{
+  --bg:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --subtle:#94a3b8;
+  --border:#e5e7eb;
+  --accent:#f59e0b;
+  --heading:#0b2a5b;
+  --ctaNavy:#0a2d66;
+  --link:#1f4ea3;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ====== MAIN CONTAINER - REDUCED BOTTOM PADDING ====== */
+.shell {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5% 5% 2% 5%;  /* Changed from 10% to 2% bottom padding */
+  text-align: center;
+}
+
+/* ====== HERO SECTION ====== */
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+  width: 100%;
+}
+
+.hero-toggle {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-frame {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.3s ease;
+}
+
+/* Touch-friendly interaction */
+@media (hover: hover) and (pointer: fine) {
+  .hero-toggle:hover .hero-img {
+    filter: grayscale(0%);
+  }
+}
+
+.hero-toggle:active .hero-img,
+.hero-toggle.active .hero-img {
+  filter: grayscale(0%);
+}
+
+/* ====== TYPOGRAPHY - ALL IN RELATIVE UNITS ====== */
+.kicker {
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1.5%;
+}
+
+h1 {
+  margin: 0 0 1.5% 0;
+  font-size: clamp(1.8rem, 7vw, 3.5rem);
+  color: var(--heading);
+  text-transform: uppercase;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.subtitle {
+  color: var(--link);
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  margin-bottom: 2%;
+}
+
+.summary {
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto 4% auto;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.summary strong {
+  font-weight: 700;
+}
+
+.divider {
+  border-top: 1px solid var(--border);
+  margin: 5% auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+/* ====== KPI ROW - MOBILE FRIENDLY ====== */
+.kpis {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+}
+
+.kpis > div {
+  flex: 0 1 auto;
+  min-width: 120px;
+  text-align: center;
+  margin: 2% 0;
+}
+
+.kpi-label {
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width:480px) {
+  .kpi-label {
+    white-space: normal;
+  }
+}
+
+.kpi-value {
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  font-weight: 900;
+  color: var(--heading);
+  line-height: 1.3;
+}
+
+/* ====== STORY SECTION ====== */
+.story {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.story-item {
+  margin-bottom: 6%;
+  padding-bottom: 5%;
+  border-bottom: 1px solid #f1f5f9;
+  width: 100%;
+}
+
+.story-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.story-title {
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--heading);
+  margin-bottom: 2%;
+}
+
+.story p {
+  color: var(--muted);
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  margin: 0 0 4% 0;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.story p:last-child {
+  margin-bottom: 0;
+}
+
+.story strong {
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.result-callout {
+  border-left: 4px solid var(--accent);
+  padding: 4% 5%;
+  background: #f8fafc;
+  margin: 4% 0;
+  border-radius: 0 4px 4px 0;
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  width: 100%;
+}
+
+.quote {
+  margin: 5% 0 3% 0;
+  font-style: italic;
+  color: #475569;
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  padding-left: 4%;
+  border-left: 2px solid var(--border);
+}
+
+/* ====== CTA BUTTON - REDUCED TOP MARGIN ====== */
+.cta-bar {
+  margin-top: 4%;  /* Reduced from 8% to 4% */
+  background: var(--ctaNavy);
+  border-radius: 8px;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.cta-bar:active {
+  transform: scale(0.98);
+}
+
+.cta-bar a {
+  display: block;
+  padding: 4% 6%;
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  width: 100%;
+  -webkit-tap-highlight-color: rgba(255,255,255,0.2);
+}
+
+/* ====== FINAL ELEMENT - NO EXTRA BOTTOM SPACE ====== */
+.story-item:last-child .cta-bar {
+  margin-bottom: 0;  /* Ensures no extra space after CTA */
+}
+
+/* ====== MOBILE BREAKPOINT - STACK KPI ROW ====== */
+@media screen and (max-width: 600px) {
+  .kpis {
+    flex-direction: column;
+    gap: 3%;
+  }
+  
+  .kpis > div {
+    width: 100%;
+    margin: 1% 0;
+  }
+  
+  .hero-img {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .shell {
+    padding: 4% 4% 1% 4%;  /* Even smaller bottom padding on mobile */
+  }
+  
+  .summary {
+    width: 100%;
+  }
+  
+  .result-callout {
+    padding: 5% 6%;
+  }
+  
+  .cta-bar {
+    margin-top: 3%;  /* Tighter on mobile */
+  }
+}
+
+/* ====== SMALL PHONES ====== */
+@media screen and (max-width: 380px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .kpi-value {
+    font-size: 1.5rem;
+  }
+  
+  .cta-bar a {
+    padding: 5% 4%;
+    font-size: 0.9rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="shell">
+
+<!-- HERO TOP -->
+<div class="hero">
+  <button class="hero-toggle" id="flyHeroToggle" type="button" aria-label="Toggle hero image color">
+    <div class="hero-frame">
+      <img src="fly-hero-color.jpg" class="hero-img" alt="Medtech design hero" loading="lazy">
+    </div>
+  </button>
+</div>
+
+<div class="kicker">Lead Gen</div>
+<h1>MedTech Design Agency</h1>
+<div class="subtitle">Precision Targeting</div>
+
+<p class="summary">
+  How a niche design agency filled their calendar with <strong>23+ qualified appointments</strong> in under 3 months.
+</p>
+
+<div class="divider"></div>
+
+<div class="kpis">
+  <div>
+    <div class="kpi-label">Leads Generated</div>
+    <div class="kpi-value">859+</div>
+  </div>
+  <div>
+    <div class="kpi-label">Appointments</div>
+    <div class="kpi-value">23+</div>
+  </div>
+  <div>
+    <div class="kpi-label">Timeframe</div>
+    <div class="kpi-value">90 Days</div>
+  </div>
+</div>
+
+<section class="story">
+
+<div class="story-item">
+  <div class="story-title">The Problem</div>
+  <p>
+    They were experts in regulated design, but their calendar was empty. They were spending time chasing poor-fit leads instead of doing the high-value work they wanted.
+  </p>
+</div>
+
+<div class="story-item">
+  <div class="story-title">The Mechanism</div>
+  <p><strong>The "Niche Down"</strong><br>
+  We focused exclusively on medical device startups needing compliance-driven design support.</p>
+
+  <p><strong>The "Daily Grind"</strong><br>
+  We implemented consistent outbound systems while they focused on engineering execution.</p>
+</div>
+
+<div class="story-item">
+  <div class="story-title">The Result</div>
+
+  <div class="result-callout">
+    We generated 859+ leads and secured 23+ qualified appointments in 90 days.
+  </div>
+
+  <p class="quote">
+    "Concentrated expertise meets concentrated outreach. The result is inevitable growth."
+  </p>
+
+  <div class="cta-bar">
+    <a href="https://www.lucid-strategy.com/contact">Get These Results</a>
+  </div>
+</div>
+
+</section>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.getElementById('flyHeroToggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(){
+      this.classList.toggle('active');
+    });
+  }
+});
+</script>
+
+</body>
+</html>
